@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input"
 import { FormProvider, useForm } from "react-hook-form";
@@ -57,73 +57,74 @@ const Login = () => {
     });
 
 
-    // const onSubmit = async (data: LoginFormValues) => {
-    //     setIsDisble(true);
+    const onSubmit = async (data: LoginFormValues) => {
+
+        // setIsDisble(true);
 
 
-    //     const res = await axios.post(`${pathUrl}/health/hie_staff/`, {username : data.username, password : data.password})
-    //     // check ว่าเป็น hie_staff 
-    //     console.log("res login : ", res.data);
-    //     if (res.data.ok) {
-    //         console.log("message : ", res.data.message);
-    //         if (res.data.message.length > 0){
-    //             // เป็น hie_staff
-    //             const stafftype = res.data.message[0].staff_type;
-    //             if(stafftype === 1 || stafftype === 0){
-    //                 const profile = await liff.getProfile()
-    //                 console.log(profile);
-    //                 setProfile(profile)
-    //                 setLineId(profile?.userId);
+        // const res = await axios.post(`${pathUrl}/health/hie_staff/`, {username : data.username, password : data.password})
+        // // check ว่าเป็น hie_staff 
+        // console.log("res login : ", res.data);
+        // if (res.data.ok) {
+        //     console.log("message : ", res.data.message);
+        //     if (res.data.message.length > 0){
+        //         // เป็น hie_staff
+        //         const stafftype = res.data.message[0].staff_type;
+        //         if(stafftype === 1 || stafftype === 0){
+        //             const profile = await liff.getProfile()
+        //             console.log(profile);
+        //             setProfile(profile)
+        //             setLineId(profile?.userId);
 
-    //                 console.warn(lineId);
+        //             console.warn(lineId);
 
-    //                 console.log("dataSend : ", profile);
+        //             console.log("dataSend : ", profile);
 
-    //                 const dataSend = {
-    //                     staff_id: res.data.message[0].staff_id,
-    //                     token_line: `${profile.userId}`
-    //                 }
+        //             const dataSend = {
+        //                 staff_id: res.data.message[0].staff_id,
+        //                 token_line: `${profile.userId}`
+        //             }
 
-    //                 const resUpdate: any = await axios.put(`${pathUrl}/health/hie_staff/updatetoken/`, dataSend )
-    //                 console.log("resUpdate", resUpdate.data)    
-    //                 if (resUpdate.data.ok) {
-    //                     if  (resUpdate.data.message  === 1){
-    //                         router.replace("/idcard"); 
-    //                     }else{
-    //                         throw new Error(res.data.error);
-    //                     }          
-    //                 }else{
-    //                     throw new Error(res.data.error);
-    //                 }
-    //             }else{
-    //                 Swal.fire({
-    //                     title: "ไม่มีสิทธ์เข้าใช้งาน",
-    //                     icon: "error",
-    //                     html: "สำหรับแพทย์เท่านั้น",
-    //                     showCloseButton: true,
-    //                     showConfirmButton: false,
-    //                 }).then(() => {
-    //                     form.reset();
-    //                     setIsDisble(false);
-    //                 });
-    //             }
-    //         }else{
-    //             // ไม่มีข้อมูลใน DB
-    //             Swal.fire({
-    //                 title: "เข้าสู่ระบบไม่สำเร็จ",
-    //                 icon: "error",
-    //                 html: "Username หรือ Password ไม่ถูกต้อง<br>" + "กรุณาลองอีกครั้ง",
-    //                 showCloseButton: true,
-    //                 showConfirmButton: false,
-    //               }).then(() => {
-    //                 form.reset();
-    //                 setIsDisble(false);
-    //               });
-    //         }
-    //     } else {
-    //         throw new Error(res.data.error);
-    //     }
-    // };
+        //             const resUpdate: any = await axios.put(`${pathUrl}/health/hie_staff/updatetoken/`, dataSend )
+        //             console.log("resUpdate", resUpdate.data)    
+        //             if (resUpdate.data.ok) {
+        //                 if  (resUpdate.data.message  === 1){
+        //                     router.replace("/idcard"); 
+        //                 }else{
+        //                     throw new Error(res.data.error);
+        //                 }          
+        //             }else{
+        //                 throw new Error(res.data.error);
+        //             }
+        //         }else{
+        //             Swal.fire({
+        //                 title: "ไม่มีสิทธ์เข้าใช้งาน",
+        //                 icon: "error",
+        //                 html: "สำหรับแพทย์เท่านั้น",
+        //                 showCloseButton: true,
+        //                 showConfirmButton: false,
+        //             }).then(() => {
+        //                 form.reset();
+        //                 setIsDisble(false);
+        //             });
+        //         }
+        //     }else{
+        //         // ไม่มีข้อมูลใน DB
+        //         Swal.fire({
+        //             title: "เข้าสู่ระบบไม่สำเร็จ",
+        //             icon: "error",
+        //             html: "Username หรือ Password ไม่ถูกต้อง<br>" + "กรุณาลองอีกครั้ง",
+        //             showCloseButton: true,
+        //             showConfirmButton: false,
+        //           }).then(() => {
+        //             form.reset();
+        //             setIsDisble(false);
+        //           });
+        //     }
+        // } else {
+        //     throw new Error(res.data.error);
+        // }
+    };
 
     return (
         <div className="cla"
@@ -156,8 +157,8 @@ const Login = () => {
             </span>
 
             <span className="absolute top-56">
-                <p className={`${inter.className} text-4xl text-center text-[#7B5800]`}>ญาติธรรม</p>
-                <p className={`${inter.className} text-2xl text-center  text-[#7B5800]`}>อัคคธัมมสถาน</p>
+                <p className={` text-5xl text-center text-[#7B5800]`}>ญาติธรรม</p>
+                <p className={`text-3xl text-center  text-[#7B5800]`}>อัคคธัมมสถาน</p>
             </span>
 
 
@@ -171,7 +172,7 @@ const Login = () => {
                     <form
                         id="frmLogin"
                         className="space-y-8"
-                    // onSubmit={form.handleSubmit(onSubmit)}
+                        onSubmit={form.handleSubmit(onSubmit)}
                     >
 
                         <div className="grid w-full items-center gap-4">
@@ -215,27 +216,29 @@ const Login = () => {
                                     </FormItem>
                                 )}
                             />
-                            <Button
-                                type="submit"
-                                variant="outline"
-                                className="bg-[#AB9355] text-[#ffffff] drop-shadow-md text-md hover:bg-[#eaefe8] hover:text-grey hover:text-lg"
-                                disabled={isDisble}
-                            >
-                                ตกลง
-                            </Button>
+                            <div className='flex justify-center '>
+                                <Button
+                                    type="submit"
+                                    variant="outline"
+                                    className="bg-[#AB9355] text-[#ffffff] drop-shadow-md text-2xl  h-[58px] w-[178px] rounded-lg shadow-lg hover:bg-[#eaefe8] hover:text-grey hover:text-lg"
+                                    disabled={isDisble}
+                                >
+                                    ตกลง
+                                </Button>
+                            </div>
                         </div>
                     </form>
                 </FormProvider>
                 {/* </CardContent>
             </Card> */}
             </div>
-            <div className="absolute top-3/4">
+            <div className="absolute top-3/4 flex justify-center ">
                 <Button
-                  type="submit"
-                  variant="outline"
-                  className="bg-[#AB9355] text-[#ffffff] drop-shadow-md text-md hover:bg-[#eaefe8] hover:text-grey hover:text-lg"
-                  disabled={isDisble}
-                  >ลงทะเบียนธาติธรรมใหม่</Button>
+                    type="submit"
+                    variant="outline"
+                    className="bg-[#C1AE7B] text-[#ffffff] drop-shadow-md text-lg  h-[48px] w-[250px] rounded-lg shadow-lg hover:bg-[#eaefe8] hover:text-grey hover:text-lg"
+                    onClick={() => router.replace('/menu')}
+                >ลงทะเบียนธาติธรรมใหม่</Button>
             </div>
         </div>
     );
