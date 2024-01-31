@@ -31,7 +31,7 @@ function Address() {
 
 
 
-                <div className='grid grid-cols-2 gap-3'>
+                <div className='grid grid-cols-2 gap-3  mt-4'>
                     <div>
                         <p>หมายเลขห้อง</p>
                         <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
@@ -90,7 +90,8 @@ function Address() {
                     </div>
 
                 </div>
-                <div>
+
+                <div className='mt-4'>
                     <p>ถนน</p>
                     <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                         inputMode="text"
@@ -98,8 +99,6 @@ function Address() {
                         id="name"
                     />
 
-                </div>
-                <div>
                     <p>* จังหวัด</p>
                     <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                         inputMode="text"
@@ -107,8 +106,6 @@ function Address() {
                         id="name"
                     />
 
-                </div>
-                <div>
                     <p>* อำเภอ / เขต</p>
                     <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                         inputMode="text"
@@ -116,8 +113,7 @@ function Address() {
                         id="name"
                     />
 
-                </div>
-                <div>
+
                     <p>* ตำบล / แขวง</p>
                     <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                         inputMode="text"
@@ -125,8 +121,7 @@ function Address() {
                         id="name"
                     />
 
-                </div>
-                <div>
+
                     <p>รหัสไปรษณีย์</p>
                     <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                         inputMode="text"
@@ -136,14 +131,14 @@ function Address() {
 
                 </div>
                 <div className="mt-5 flex justify-center ">
-                <Button 
-                    className="bg-[#8F8C7D] text-[#ffffff] border border-[#ffffff] text-xl h-[58px] w-[178px] rounded-lg shadow-md shadow-gray-500/100  hover:bg-[#eaefe8] disabled:bg-gray-500
+                    <Button
+                        className="bg-[#8F8C7D] text-[#ffffff] border border-[#ffffff] text-xl h-[58px] w-[178px] rounded-lg shadow-md shadow-gray-500/100  hover:bg-[#eaefe8] disabled:bg-gray-500
                       hover:text-[#00AE91] hover:text-xl mt-5"
-                    type="submit"
-                    onClick={() => router.replace('/showdetail')}> ตกลง </Button>
+                        type="submit"
+                        onClick={() => router.replace('/showdetail')}> ตกลง </Button>
                 </div>
 
-                
+
             </div>
         </div>
     )

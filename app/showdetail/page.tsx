@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { useRouter } from "next/navigation";
+import Headerregister from '../formregister/components/headerregister';
 function page() {
 
   const router = useRouter();
@@ -9,12 +10,12 @@ function page() {
 
   return (
 
-    <div>
+    <div className='m-8'>
       <div>
-        <p>ลงทะเบียนญาติธรรม อัคคธัมมสถาน (อธส.)</p>
+      <Headerregister/>
       </div>
 
-      <div className=' grid grid-cols-2'>
+      <div className='grid grid-cols-2'>
 
         <span className='flex justify-start'> {`<`}  แก้ไข</span>
         <span className='flex justify-end'> ข้อมูลพื้นฐาน</span>
@@ -43,7 +44,7 @@ function page() {
       <div className=' grid grid-cols-2 mt-5'>
 
         <span className='flex justify-start'> {`<`}  แก้ไข</span>
-        <span className='flex justify-end'> ข้อมูลพื้นฐาน</span>
+        <span className='flex justify-end'> ที่อยู่ปัจจุบัน</span>
 
         <span className='flex justify-start'>เลขบัตรประชาชน</span>
         <span className='flex justify-end'> 3900700618204</span>
