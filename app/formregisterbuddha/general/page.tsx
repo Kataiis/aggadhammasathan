@@ -3,9 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import DateDropdown from '@/component/date-dropdown';
-import back from '@/public/back.png'
-import Image from 'next/image'
-import Address from "./address";
+import Headerregister from "@/app/components/headerregister";
 
 interface IDateDropdown {
     /** Required. Callback for date change: Format: YYYY-MM-DD */
@@ -39,7 +37,10 @@ function General() {
 
 
     return (
-        <div >
+        <div className='m-6'>
+      <div>
+        <Headerregister />
+      </div>
             <form>
                 <div className='flex justify-end'>
                     <p>ระบุข้อมูล</p>
@@ -64,15 +65,15 @@ function General() {
 
 
                     <div className="flex gap-3 mt-4">
-                        <input id="MR" className="peer/MR accent-yellow-700" type="radio" name="status" defaultChecked />
-                        <label htmlFor="MR" className="peer-checked/MR:text-black	">นาย</label>
+                        <input id="monk" className="peer/monk accent-yellow-700" type="radio" name="status" defaultChecked />
+                        <label htmlFor="monk" className="peer-checked/monk:text-black	">พระ</label>
 
 
-                        <input id="MS" className="peer/MS  accent-yellow-700" type="radio" name="status" />
-                        <label htmlFor="MS" className="peer-checked/MS:text-black	">นาง</label>
+                        <input id="novice" className="peer/novice  accent-yellow-700" type="radio" name="status" />
+                        <label htmlFor="novice" className="peer-checked/novice:text-black	">สามเณร</label>
 
-                        <input id="M" className="peer/M  accent-yellow-700" type="radio" name="status" />
-                        <label htmlFor="M" className="peer-checked/M:text-black	">นางสาว</label>
+                        <input id="nun" className="peer/nun  accent-yellow-700" type="radio" name="status" />
+                        <label htmlFor="nun" className="peer-checked/nun:text-black	">แม่ชี</label>
 
                     </div>
 
@@ -90,27 +91,8 @@ function General() {
                             // placeholder="กรุณากรอกเลขบัตรประชาชน"
                             id="name"
                         />
-                        <div className='grid grid-cols-2 gap-4 mt-4'>
-                            <div>
-                                <p>เชื่อชาติ</p>
-                                <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
-                                    inputMode="text"
-                                    // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                                    id="race"
-                                />
-                            </div>
-                            <div>
-                                <p>สัญชาติ</p>
-                                <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
-                                    inputMode="text"
-                                    // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                                    id="nationality"
-                                />
-                            </div>
-
-                        </div>
                         <div className='mt-4'>
-                            <p>ศาสนา</p>
+                            <p>ฉายา (พระสงฆ์)</p>
                             <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
                                 inputMode="text"
                                 // placeholder="กรุณากรอกเลขบัตรประชาชน"
@@ -118,13 +100,40 @@ function General() {
                             />
                         </div>
 
+                        <div className='mt-4'>
+                            <p>เลขที่หนังสือสุทธิ</p>
+                            <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
+                                inputMode="numeric"
+                                // placeholder="กรุณากรอกเลขบัตรประชาชน"
+                                maxLength={7}
+                                id="cult"
+                            />
+                        </div>
+                        <div className='mt-4'>
+                            <p>สังกัดวัด</p>
+                            <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
+                                inputMode="text"
+                                // placeholder="กรุณากรอกเลขบัตรประชาชน"
+                                id="cult"
+                            />
+                        </div>
+                        <div className='mt-4'>
+                            <p>จังหวัด</p>
+                            <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
+                                inputMode="text"
+                                // placeholder="กรุณากรอกเลขบัตรประชาชน"
+                                id="cult"
+                            />
+                        </div>
+
+
                         <div className='mt-4 grid grid-cols-1 justify-items-center '>
                             <DateDropdown
                                 onDateChange={() => { }}
                             />
                         </div>
 
-                        <p className='mt-6'>ที่อยู่ปัจจุบัน</p>
+                        <p className='mt-8'>ที่อยู่วัด/สำนัก</p>
                        
                         <label className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
                             inputMode="text"
@@ -145,7 +154,7 @@ function General() {
 
                 <div className="absolute bottom-0 left-45  right-5 ">
                     <button className='text-[#D9A41C] text-2xl'
-                        onClick={() => router.replace('/address')}
+                        onClick={() => router.replace('./address')}
 
                     > {'>'} </button>
                 </div>

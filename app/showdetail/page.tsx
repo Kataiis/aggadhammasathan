@@ -1,14 +1,13 @@
 "use client"
 
-import React, { Component } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
-import Headerregister from '../formregister/components/headerregister';
+import Headerregister from '../components/headerregister';
 import { Button } from '@/components/ui/button';
 
-import General from "../formregister/components/general";
 
 
-function page() {
+function Showdetail() {
 
   const router = useRouter();
 
@@ -24,7 +23,8 @@ function page() {
       <div className='grid grid-cols-2 mt-3'>
 
         <span className='flex justify-start text-[#949494]'
-          onClick={() =>   {<General />}}             > {`<`}  แก้ไข</span>
+        onClick={() => router.replace('/formregister/general')}
+        >  {`<`}  แก้ไข</span>
 
         <span className='flex justify-end text-[#AB9355] font-semibold	text-lg'> ข้อมูลพื้นฐาน</span>
 
@@ -51,7 +51,9 @@ function page() {
 
       <div className='grid grid-cols-2 mt-5'>
 
-        <span className='flex justify-start text-[#949494]'> {`<`}  แก้ไข</span>
+        <span className='flex justify-start text-[#949494]' 
+        onClick={() => router.replace('/formregistercommon/address')}
+        > {`<`}  แก้ไข</span>
         <span className='flex justify-end text-[#AB9355] font-semibold	text-lg'> ข้อมูลพื้นฐาน</span>
 
         <span className='flex justify-start text-[#949494] mt-2 text-sm	'> หมู่บ้าน, อาคาร</span>
@@ -95,4 +97,4 @@ function page() {
   )
 }
 
-export default page
+export default Showdetail

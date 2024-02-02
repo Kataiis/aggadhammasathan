@@ -87,7 +87,7 @@ const MonthPicker: React.FC<IMonthPicker> = ({
   };
 
   return (
-    <div className="text-black ">
+    <div className="text-black text-center">
     <select
       className={className?.select}
       style={styles?.select}

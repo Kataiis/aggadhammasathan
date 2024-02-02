@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import DateDropdown from '@/component/date-dropdown';
-import back from '@/public/back.png'
-import Image from 'next/image'
+import Headerregister from "@/app/components/headerregister";
 
 interface IDateDropdown {
     /** Required. Callback for date change: Format: YYYY-MM-DD */
@@ -38,7 +37,10 @@ function General() {
 
 
     return (
-        <div >
+        <div className='m-6'>
+      <div>
+        <Headerregister />
+      </div>
             <form>
                 <div className='flex justify-end'>
                     <p>ระบุข้อมูล</p>
@@ -123,7 +125,7 @@ function General() {
                             />
                         </div>
 
-                        <p className='mt-6'>ที่อยู่ปัจจุบัน</p>
+                        <p className='mt-8'>ที่อยู่ปัจจุบัน</p>
                        
                         <label className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
                             inputMode="text"
@@ -144,7 +146,7 @@ function General() {
 
                 <div className="absolute bottom-0 left-45  right-5 ">
                     <button className='text-[#D9A41C] text-2xl'
-                        onClick={() => router.replace('/address')}
+                        onClick={() => router.replace('./address')}
 
                     > {'>'} </button>
                 </div>

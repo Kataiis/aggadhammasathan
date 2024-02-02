@@ -137,11 +137,13 @@ const Login = () => {
                 background: "#C2AE7B",
             }}
         >
-            <span className="absolute top-14">
+            <span className="absolute top-10">
                 <Image
                     priority
                     src={BG}
                     alt="scan"
+                    width={1000}
+                 
 
                 />
             </span>

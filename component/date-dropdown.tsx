@@ -82,8 +82,8 @@ const DateDropdown: React.FC<IDateDropdown> = ({
 
   return (
 
-    <div className="flex flex-row gap-10">
-      <div className="basis-1/4">
+    <div className="flex flex-row gap-20">
+      <div className="basis-1/4 ">
         <p className='flex justify-center'>วัน</p>
 
         <DayPicker
