@@ -8,11 +8,11 @@ function Register() {
   const router = useRouter();
 
   return (
-    <div className='m-10'>
+    <div className='m-6'>
       <div>
         <Headerregister />
       </div>
-      <div className='flex justify-end'>
+      <div className='flex justify-end mt-2'>
         <p>เลือกสถานะ</p>
       </div>
 

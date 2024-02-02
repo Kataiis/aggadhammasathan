@@ -147,7 +147,7 @@ const Login = () => {
             </span>
 
 
-            <span className="absolute  top-20">
+            <span className="absolute  top-10 bottom-auto">
                 <Image
                     priority
                     src={logo}
@@ -156,7 +156,7 @@ const Login = () => {
                 />
             </span>
 
-            <span className="absolute top-56">
+            <span className="absolute top-44 bottom-auto">
                 <p className={` text-5xl text-center text-[#7B5800]`}>ญาติธรรม</p>
                 <p className={`text-3xl text-center  text-[#7B5800]`}>อัคคธัมมสถาน</p>
             </span>

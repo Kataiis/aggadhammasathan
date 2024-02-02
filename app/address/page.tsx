@@ -10,7 +10,7 @@ function Address() {
     const [isSubscribed, setIsSubscribed] = useState(false);
 
     return (
-        <div className='m-10'>
+        <div className='m-6'>
 
             <p className='text-[#D9A41C] font-semibold	' onClick={() => router.replace('/formregister')} >{`<`} ย้อนกลับ  </p>
             <p className=' text-xl flex justify-end font-bold	'>ที่อยู่ปัจจุบัน</p>

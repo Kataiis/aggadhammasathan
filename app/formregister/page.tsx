@@ -5,7 +5,7 @@ import Headerregister from './components/headerregister'
 
 function Formregister() {
     return (
-        <div className='m-10'>
+        <div className='m-6'>
              <div>
                 <Headerregister/>
             </div>
