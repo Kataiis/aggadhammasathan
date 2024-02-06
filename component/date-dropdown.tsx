@@ -83,7 +83,7 @@ const DateDropdown: React.FC<IDateDropdown> = ({
   return (
 
     <div className="flex flex-row gap-20">
-      <div className="basis-1/4 ">
+      <div className="gap-5 ">
         <p className='flex justify-center'>วัน</p>
 
         <DayPicker
@@ -97,7 +97,7 @@ const DateDropdown: React.FC<IDateDropdown> = ({
         />
       </div>
 
-      <div className="basis-1/4">
+      <div className="gap-5 ">
         <p className='flex justify-end'>เดือน</p>
         <MonthPicker
           selectedMonth={selectedMonth}
@@ -109,9 +109,9 @@ const DateDropdown: React.FC<IDateDropdown> = ({
           arrayMonthList={arrayMonthList}
         /></div>
 
-      <div className="basis-1/2">
+      <div className="gap-5 ">
 
-        <p className='flex justify-end' >เกิด พ.ศ.</p>
+        <p className='flex justify-end' > เกิด พ.ศ.</p>
 
         <YearPicker
           selectedYear={selectedYear}

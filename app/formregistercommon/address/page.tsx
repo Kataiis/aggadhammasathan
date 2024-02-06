@@ -6,14 +6,15 @@ import { Button } from "@/components/ui/button";
 
 
 function Address() {
+   
     const router = useRouter();
     const [isSubscribed, setIsSubscribed] = useState(false);
 
     return (
         <div className='m-6'>
-          
+
             <p className='text-[#D9A41C] font-semibold	' onClick={() => router.replace('./general')} >{`<`} ย้อนกลับ  </p>
-            <p className=' text-xl flex justify-end font-bold	'>ที่อยู่ปัจจุบัน</p>
+            <p className=' text-xl flex justify-end font-bold'>  ที่อยู่ปัจจุบัน</p>
 
 
             <div className='text-neutral-400'>
@@ -135,7 +136,7 @@ function Address() {
                         className="bg-[#8F8C7D] text-[#ffffff] border border-[#ffffff] text-xl h-[58px] w-[178px] rounded-lg shadow-md shadow-gray-500/100  hover:bg-[#eaefe8] disabled:bg-gray-500
                       hover:text-[#00AE91] hover:text-xl mt-5"
                         type="submit"
-                        onClick={() => router.replace('/showdetail')}> ตกลง </Button>
+                        onClick={() => router.replace('/showdetail')} > ตกลง </Button>
                 </div>
 
 

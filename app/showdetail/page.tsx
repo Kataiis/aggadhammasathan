@@ -1,13 +1,15 @@
 "use client"
 
-import React from "react";
+import React, { createContext } from "react";
 import { useRouter } from "next/navigation";
 import Headerregister from '../components/headerregister';
 import { Button } from '@/components/ui/button';
 
+import General from "../formregisterbuddha/general/page";
 
 
 function Showdetail() {
+
 
   const router = useRouter();
 
@@ -22,14 +24,16 @@ function Showdetail() {
 
       <div className='grid grid-cols-2 mt-3'>
 
+
+
         <span className='flex justify-start text-[#949494]'
-        onClick={() => router.replace('/formregister/general')}
+        onClick={() => router.replace('/formregistercommon/general')}
         >  {`<`}  แก้ไข</span>
 
         <span className='flex justify-end text-[#AB9355] font-semibold	text-lg'> ข้อมูลพื้นฐาน</span>
 
         <span className='flex justify-start text-[#949494] mt-2 text-sm	'> เบอร์โทรศัพท์</span>
-        <span className='flex justify-end mt-2 text-black font-semibold	text-lg'> 3900700618204</span>
+        <span className='flex justify-end mt-2 text-black font-semibold	text-lg'>3900700618204 </span>
 
         <span className='flex justify-start text-[#949494] mt-1 text-sm	'>ชื่อ-นามสกุล </span>
         <span className='flex justify-end text-black font-semibold	text-lg'> 3900700618204</span>
