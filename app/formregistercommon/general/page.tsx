@@ -8,6 +8,7 @@ import { Form, Button } from 'semantic-ui-react';
 import { useForm } from "react-hook-form";
 // import dayjs from "dayjs";
 // import th from "dayjs/locale/th";
+import Select from "react-select";
 
 
 interface IDateDropdown {
@@ -41,12 +42,58 @@ function General() {
     const router = useRouter();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    // const [isOpen, setIsOpen] = useState(true);
+    const [selected, setSelected] = useState(true);
+    // const [selectman, setselectman] = useState(true);
+
+    const [selectedOption, setSelectedOption] = useState<String>();
+    const [selectedman, setSelectedman] = useState<String>();
+    const [selectedgirl, setSelectedgirl] = useState<String>();
+
+    const [isOpen, setIsOpen] = useState(true);
 
     const onSubmit = (data: any) => {
         console.log(data);
         router.replace("/formregistercommon/address")
 
     }
+
+    function onClickman() {
+        setIsOpen(true);
+    }
+    function onClickgirl() {
+        setIsOpen(false);
+    }
+
+
+    const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = event.target.value;
+        setSelectedOption(value);
+        console.log("value", value)
+    };
+
+    const selectman = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const valueman = event.target.value;
+        setSelectedman(valueman);
+        setIsOpen(true);
+
+    };
+
+    const selectwoman = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const valuewoman = event.target.value;
+        setSelectedgirl(valuewoman);
+        setIsOpen(false);
+    };
+
+
+
+
+    const handleChange = (selectedOption: any) => {
+        setSelected(selectedOption);
+        setSelected(true);
+        console.log(`Option selected:`, selectedOption);
+    };
+
 
     return (
 
@@ -56,16 +103,10 @@ function General() {
                 <Headerregister />
             </div>
 
-            {/* <p className='text-[#D9A41C] font-semibold	' onClick={() => router.replace('./general')} >{`<`} ย้อนกลับ  </p> */}
 
 
 
             <div className="flex justify-end"> ระบุข้อมูล</div>
-
-
-
-
-
             <Form className="text-neutral-400" onSubmit={handleSubmit(onSubmit)}>
                 <Form.Field>
                     <label>เลขบัตรประชาชน</label>
@@ -91,41 +132,50 @@ function General() {
                 </Form.Field>
 
                 <Form.Field>
-                    <div className="flex gap-3 mt-4 mb-4">
-                        เพศ
+                    <div className="mt-4 mb-4">
 
-                        <input id="MB" className="peer/MB  accent-yellow-700" type="radio" name="status" defaultChecked
-                      />
-                        <label htmlFor="MB" className="peer-checked/MB:text-black	">ชาย</label>
+                        <span>  ระบุเพศ :</span>
+                        {errors.gender && <p className="text-xs italic text-red-500 mt-2">กรุณาระบุเพศ</p>}
+                        <span className="ml-5">
 
-                        <input id="MG" className="peer/MG  accent-yellow-700" type="radio" name="status" />
-                        <label htmlFor="MG" className="peer-checked/MG:text-black	">หญิง</label>
+                            <select onChange={selectChange} id="gender"  >
+                                <option selected disabled >
+                                    กรุณาเลือก
+                                </option>
+                                <option value="man" {...register("gender", { required: true })}>ชาย</option>
+                                <option value="woman" {...register("gender", { required: true })}>หญิง</option>
+
+                            </select>
 
 
+                            <span className="ml-5">
 
+                                {selectedOption && (selectedOption === "man") ?
+
+                                    (<select onChange={selectman} >
+                                        <option selected disabled>
+                                            กรุณาเลือก
+                                        </option>
+                                        <option value="boy">ด.ช.</option>
+                                        <option value="mr">นาย</option>
+
+                                    </select>) : null}
+                                {selectedOption && (selectedOption === "woman") ?
+
+                                    (<select onChange={selectwoman} >
+                                        <option selected disabled>
+                                            กรุณาเลือก
+                                        </option>
+                                        <option value="girl">ด.ญ.</option>
+                                        <option value="mrs">นาง</option>
+                                        <option value="m">นางสาว</option>
+
+                                    </select>) : null}
+                            </span>
+                        </span>
                     </div>
                 </Form.Field>
-                <div className="flex gap-3 mt-4 mb-4">
-                    <input id="B" className="peer/B  accent-yellow-700" type="radio" name="status" defaultChecked />
-                    <label htmlFor="B" className="peer-checked/B:text-black	">ด.ช.</label>
 
-                    <input id="G" className="peer/G  accent-yellow-700" type="radio" name="status" />
-                    <label htmlFor="G" className="peer-checked/G:text-black	">ด.ญ.</label>
-                </div>
-                <div className="flex gap-3 mt-4 mb-4">
-
-                    <input id="MR" className="peer/MR accent-yellow-700" type="radio" name="status" />
-                    <label htmlFor="MR" className="peer-checked/MR:text-black	">นาย</label>
-
-
-                    <input id="MS" className="peer/MS  accent-yellow-700" type="radio" name="status" />
-                    <label htmlFor="MS" className="peer-checked/MS:text-black	">นาง</label>
-
-                    <input id="M" className="peer/M  accent-yellow-700" type="radio" name="status" />
-                    <label htmlFor="M" className="peer-checked/M:text-black	">นางสาว</label>
-
-
-                </div>
 
                 <Form.Field>
                     <label>ชื่อ (ภาษาไทย)</label>
@@ -157,7 +207,7 @@ function General() {
 
 
                     <Form.Field>
-
+                        {/* 
                         <label>เชื่อชาติ</label>
                         {errors.race && <p className="text-xs italic text-red-500 mt-2">กรุณากรอกเชื่อชาติ</p>}
                         <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
@@ -166,12 +216,7 @@ function General() {
                             id="race"
                             {...register("race", { required: true })}
 
-                        />
-
-                    </Form.Field>
-
-                    <Form.Field>
-
+                        /> */}
 
                         <label>สัญชาติ</label>
                         {errors.nationality && <p className="text-xs italic text-red-500 mt-2">กรุณากรอกสัญชาติ</p>}
@@ -181,20 +226,27 @@ function General() {
                             id="nationality"
                             {...register("nationality", { required: true })}
                         />
+
+
+                    </Form.Field>
+
+                    <Form.Field>
+
+                        <label>ศาสนา</label>
+                        {errors.cult && <p className="text-xs italic text-red-500 mt-2">กรุณากรอกศาสนา</p>}
+
+                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
+                            inputMode="text"
+                            type="cult" id="cult"
+                            {...register("cult", { required: true })}
+
+                        />
                     </Form.Field>
 
                 </div>
-                <Form.Field>
-                    <label>ศาสนา</label>
-                    {errors.cult && <p className="text-xs italic text-red-500 mt-2">กรุณากรอกศาสนา</p>}
-
-                    <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent  text-black"
-                        inputMode="text"
-                        type="cult" id="cult"
-                        {...register("cult", { required: true })}
-
-                    />
-                </Form.Field>
+                {/* <Form.Field>
+                  
+                </Form.Field> */}
 
                 <Form.Field>
                     <div className='mt-4 grid grid-cols-1 gap-5 justify-items-center '>
