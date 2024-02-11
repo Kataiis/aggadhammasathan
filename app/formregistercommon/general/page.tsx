@@ -40,17 +40,16 @@ interface IDateDropdown {
 
 function General() {
     const router = useRouter();
-
     const { register, handleSubmit, formState: { errors } } = useForm();
-    // const [isOpen, setIsOpen] = useState(true);
-    const [selected, setSelected] = useState(true);
-    // const [selectman, setselectman] = useState(true);
-
     const [selectedOption, setSelectedOption] = useState<String>();
     const [selectedman, setSelectedman] = useState<String>();
     const [selectedgirl, setSelectedgirl] = useState<String>();
-
     const [isOpen, setIsOpen] = useState(true);
+
+
+    // const [isOpen, setIsOpen] = useState(true);
+    // const [selected, setSelected] = useState(true);
+    // const [selectman, setselectman] = useState(true);
 
     const onSubmit = (data: any) => {
         console.log(data);
@@ -58,13 +57,18 @@ function General() {
 
     }
 
-    function onClickman() {
-        setIsOpen(true);
-    }
-    function onClickgirl() {
-        setIsOpen(false);
-    }
+    // function onClickman() {
+    //     setIsOpen(true);
+    // }
+    // function onClickgirl() {
+    //     setIsOpen(false);
+    // }
 
+    // const handleChange = (selectedOption: any) => {
+    //     setSelected(selectedOption);
+    //     setSelected(true);
+    //     console.log(`Option selected:`, selectedOption);
+    // };
 
     const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
@@ -76,6 +80,7 @@ function General() {
         const valueman = event.target.value;
         setSelectedman(valueman);
         setIsOpen(true);
+        console.log("valueman", valueman)
 
     };
 
@@ -83,16 +88,12 @@ function General() {
         const valuewoman = event.target.value;
         setSelectedgirl(valuewoman);
         setIsOpen(false);
+        console.log("valuewoman", valuewoman)
     };
 
 
 
 
-    const handleChange = (selectedOption: any) => {
-        setSelected(selectedOption);
-        setSelected(true);
-        console.log(`Option selected:`, selectedOption);
-    };
 
 
     return (
@@ -115,7 +116,7 @@ function General() {
                         inputMode="numeric"
                         id="citizen"
                         type="numeric"
-
+                        maxLength={13}
                         {...register("citizen", { required: true, maxLength: 13 })} />
                 </Form.Field>
 
@@ -142,8 +143,8 @@ function General() {
                                 <option selected disabled >
                                     กรุณาเลือก
                                 </option>
-                                <option value="man" {...register("gender", { required: true })}>ชาย</option>
-                                <option value="woman" {...register("gender", { required: true })}>หญิง</option>
+                                <option className=" text-black" value="man" >ชาย</option>
+                                <option className=" text-black" value="woman">หญิง</option>
 
                             </select>
 
@@ -156,8 +157,8 @@ function General() {
                                         <option selected disabled>
                                             กรุณาเลือก
                                         </option>
-                                        <option value="boy">ด.ช.</option>
-                                        <option value="mr">นาย</option>
+                                        <option className=" text-black" value="boy ">ด.ช.</option>
+                                        <option className=" text-black" value="mr">นาย</option>
 
                                     </select>) : null}
                                 {selectedOption && (selectedOption === "woman") ?
@@ -166,9 +167,9 @@ function General() {
                                         <option selected disabled>
                                             กรุณาเลือก
                                         </option>
-                                        <option value="girl">ด.ญ.</option>
-                                        <option value="mrs">นาง</option>
-                                        <option value="m">นางสาว</option>
+                                        <option className=" text-black" value="girl">ด.ญ.</option>
+                                        <option className=" text-black" value="mrs">นาง</option>
+                                        <option className=" text-black" value="m">นางสาว</option>
 
                                     </select>) : null}
                             </span>

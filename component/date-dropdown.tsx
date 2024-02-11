@@ -71,10 +71,7 @@ const DateDropdown: React.FC<IDateDropdown> = ({
       setSelectedDay(selectedDay);
 
       onDateChange(
-        `${selectedYear}-${zeroPad(selectedMonth, 2)}-${zeroPad(
-          selectedDay,
-          2
-        )}`
+        `${selectedYear}-${zeroPad(selectedMonth, 2)}-${zeroPad( selectedDay,2)}`
       );
 
     }
