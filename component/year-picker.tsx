@@ -34,7 +34,7 @@ const YearPicker: React.FC<IYearPicker> = ({
 }) => {
   const renderYearOptions = () => {
     const startYear = start || 1900;
-    const endYear = end || new Date().getFullYear();
+    const endYear = end || new Date().getFullYear()+543;
 
     const years: number[] = [];
     if (startYear <= endYear) {

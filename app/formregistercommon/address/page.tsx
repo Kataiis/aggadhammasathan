@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 
 function Address() {
-   
+
     const router = useRouter();
     const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -51,17 +51,9 @@ function Address() {
                         />
 
                     </div>
-                    <div>
 
-                        <p>* บ้านเลขที่ </p>
-                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                            inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                            id="name"
-                        />
-                    </div>
 
-                    <div>
+                    {/* <div>
                         <p>หมู่ที่</p>
                         <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                             inputMode="text"
@@ -78,9 +70,9 @@ function Address() {
                             // placeholder="กรุณากรอกเลขบัตรประชาชน"
                             id="name"
                         />
-                    </div>
+                    </div> */}
 
-                    <div>
+                    {/* <div>
                         <p>ถนน</p>
                         <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                             inputMode="text"
@@ -88,47 +80,54 @@ function Address() {
                             id="name"
                         />
 
-                    </div>
+                    </div> */}
 
                 </div>
-
                 <div className='mt-4'>
-                    <p>ถนน</p>
+
+                    <p>*ที่อยู่</p>
                     <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                         inputMode="text"
                         // placeholder="กรุณากรอกเลขบัตรประชาชน"
                         id="name"
                     />
+                </div>
+                <div className='grid grid-cols-2 gap-3 mt-4'>
 
-                    <p className='mt-4'>* จังหวัด</p>
-                    <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                        inputMode="text"
-                        // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                        id="name"
-                    />
+                    <div>
+                        <p className='mt-4'>* ตำบล / แขวง</p>
+                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
+                            inputMode="text"
+                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
+                            id="name"
+                        />
+                    </div>
+                    <div>
+                        <p className='mt-4'>* อำเภอ / เขต</p>
+                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
+                            inputMode="text"
+                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
+                            id="name"
+                        />
+                    </div>
+                    <div>
+                        <p className='mt-4'>* จังหวัด</p>
+                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
+                            inputMode="text"
+                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
+                            id="name"
+                        />
+                    </div>
+                    <div>
+                        <p className='mt-4'>รหัสไปรษณีย์</p>
+                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
+                            inputMode="text"
+                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
+                            id="name"
+                        />
+                    </div>
 
-                    <p className='mt-4'>* อำเภอ / เขต</p>
-                    <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                        inputMode="text"
-                        // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                        id="name"
-                    />
 
-
-                    <p className='mt-4'>* ตำบล / แขวง</p>
-                    <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                        inputMode="text"
-                        // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                        id="name"
-                    />
-
-
-                    <p className='mt-4'>รหัสไปรษณีย์</p>
-                    <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                        inputMode="text"
-                        // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                        id="name"
-                    />
 
                 </div>
                 <div className="mt-5 flex justify-center ">
