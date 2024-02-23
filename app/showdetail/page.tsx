@@ -44,7 +44,7 @@ function Showdetail() {
         <span className='flex justify-start text-[#949494] mt-1 text-sm	'>อายุ</span>
         <span className='flex justify-end text-black font-semibold	text-lg'> 3900700618204</span>
 
-        <span className='flex justify-start text-[#949494] mt-1 text-sm	'>เชื้อชาติ, สัญชาติ</span>
+        <span className='flex justify-start text-[#949494] mt-1 text-sm	'>สัญชาติ</span>
         <span className='flex justify-end text-black font-semibold	text-lg'> 3900700618204</span>
 
         <span className='flex justify-start text-[#949494] mt-1 text-sm	'>ศาสนา</span>
@@ -81,8 +81,8 @@ function Showdetail() {
         <span className='flex justify-start text-[#949494] mt-1 text-sm	'>จังหวัด</span>
         <span className='flex justify-end text-black font-semibold	text-lg'> 3900700618204</span>
 
-        <span className='flex justify-start text-[#949494] mt-1 text-sm	'>รหัสไปรษณีย์</span>
-        <span className='flex justify-end text-black font-semibold	text-lg'> 3900700618204</span>
+        {/* <span className='flex justify-start text-[#949494] mt-1 text-sm	'>รหัสไปรษณีย์</span>
+        <span className='flex justify-end text-black font-semibold	text-lg'> 3900700618204</span> */}
 
 
 

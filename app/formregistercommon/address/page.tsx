@@ -1,14 +1,50 @@
 "use client"
+import axios from "axios";
 import { Router } from 'next/router'
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+
+
+
+const pathUrl = process.env.pathUrl;
 
 
 function Address() {
 
     const router = useRouter();
-    const [isSubscribed, setIsSubscribed] = useState(false);
+    const [province, setprovince] = useState([]);
+    const [districts, setdistricts] = useState([]);
+
+
+    const fetchprovince = async () => {
+       
+        try {
+            const data = await axios.get(`${pathUrl}/province`)
+            setprovince(data.data.message);
+        } catch (error: any) {
+            console.error(error.message);
+        }
+      
+    };
+
+    const fetchdistricts = async () => {
+        try {
+            const data = await axios.get(`${pathUrl}/district/{province}/{text}`)
+            setdistricts(data.data.message);
+        } catch (error: any) {
+            console.error(error.message);
+        }
+    };
+
+
+
+
+    useEffect(() => {
+        fetchprovince();
+        fetchdistricts();
+    }, []);
+
 
     return (
         <div className='m-6'>
@@ -37,7 +73,6 @@ function Address() {
                         <p>หมายเลขห้อง</p>
                         <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                             inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
                             id="name"
                         />
                     </div>
@@ -46,41 +81,12 @@ function Address() {
                         <p>ชั้น</p>
                         <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                             inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
                             id="name"
                         />
 
                     </div>
 
 
-                    {/* <div>
-                        <p>หมู่ที่</p>
-                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                            inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                            id="name"
-                        />
-
-                    </div>
-                    <div>
-
-                        <p>ซอย</p>
-                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                            inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                            id="name"
-                        />
-                    </div> */}
-
-                    {/* <div>
-                        <p>ถนน</p>
-                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                            inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                            id="name"
-                        />
-
-                    </div> */}
 
                 </div>
                 <div className='mt-4'>
@@ -88,12 +94,44 @@ function Address() {
                     <p>*ที่อยู่</p>
                     <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                         inputMode="text"
-                        // placeholder="กรุณากรอกเลขบัตรประชาชน"
                         id="name"
                     />
                 </div>
-                <div className='grid grid-cols-2 gap-3 mt-4'>
 
+                
+                <div className=' gap-3 mt-4'>
+
+                    <div className="grid grid-cols-2">
+                        <span>*จังหวัด</span>
+                        <span>
+                            <select id="province" >
+                                <option selected disabled >
+                                    กรุณาเลือก
+                                </option>
+                                {province.map((item: any) => (
+                                    <option className=" text-black" value="man" key={item.id} >  {item.name_in_thai}</option>
+                                ))}
+                            </select>
+                        </span>
+                    </div>
+
+
+
+
+
+                    <div className="grid grid-cols-2">
+                        <span>*อำเภอ</span>
+                        <span>
+                            <select id="districts" >
+                                <option selected disabled >
+                                    กรุณาเลือก
+                                </option>
+                                {districts.map((item: any) => (
+                                    <option className=" text-black" value="man" key={item.id} >  {item.name_in_thai}</option>
+                                ))}
+                            </select>
+                        </span>
+                    </div>
                     <div>
                         <p className='mt-4'>* ตำบล / แขวง</p>
                         <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
@@ -102,30 +140,16 @@ function Address() {
                             id="name"
                         />
                     </div>
-                    <div>
-                        <p className='mt-4'>* อำเภอ / เขต</p>
-                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                            inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                            id="name"
-                        />
-                    </div>
-                    <div>
-                        <p className='mt-4'>* จังหวัด</p>
-                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                            inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                            id="name"
-                        />
-                    </div>
-                    <div>
+
+
+                    {/* <div>
                         <p className='mt-4'>รหัสไปรษณีย์</p>
                         <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                             inputMode="text"
                             // placeholder="กรุณากรอกเลขบัตรประชาชน"
                             id="name"
                         />
-                    </div>
+                    </div> */}
 
 
 

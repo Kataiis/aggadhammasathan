@@ -92,13 +92,13 @@ function Address() {
                         id="name"
                     />
 
-
+{/* 
                     <p className='mt-4'>รหัสไปรษณีย์</p>
                     <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
                         inputMode="text"
                         // placeholder="กรุณากรอกเลขบัตรประชาชน"
                         id="name"
-                    />
+                    /> */}
 
                 </div>
                 <div className="mt-5 flex justify-center ">

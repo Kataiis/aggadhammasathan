@@ -38,9 +38,12 @@ function General() {
 
     return (
         <div className='m-6'>
-      <div>
-        <Headerregister />
-      </div>
+   
+           <div className='text-[#D9A41C] font-semibold	text-lg mb-5' onClick={() => router.replace('/menu')}>{`<`} ย้อนกลับ </div>
+            <div>
+                <Headerregister />
+            </div>
+
             <form>
                 <div className='flex justify-end'>
                     <p>ระบุข้อมูล</p>
