@@ -15,34 +15,63 @@ function Address() {
     const router = useRouter();
     const [province, setprovince] = useState([]);
     const [districts, setdistricts] = useState([]);
+    const [subdistricts, setsubdistricts] = useState([]);
 
 
-    const fetchprovince = async () => {
-       
-        try {
-            const data = await axios.get(`${pathUrl}/province`)
-            setprovince(data.data.message);
-        } catch (error: any) {
-            console.error(error.message);
-        }
-      
-    };
+    const getprovince = async () => {
+        const res: any = await axios.get(`${pathUrl}/province`);
+        console.log("resda", res)
 
-    const fetchdistricts = async () => {
-        try {
-            const data = await axios.get(`${pathUrl}/district/{province}/{text}`)
-            setdistricts(data.data.message);
-        } catch (error: any) {
-            console.error(error.message);
+        if (res.data.ok) {
+            setprovince(res.data.message);
+        } else {
+            throw new Error("getprovince Error : ", res.error);
         }
     };
+    console.log(province)
 
 
+    const getdistrictsovince = async (id: any) => {
+        const res: any = await axios.get(`${pathUrl}/district/` + id);
+        console.log("resda", res)
 
+        if (res.data.ok) {
+            setdistricts(res.data.message);
+        } else {
+            throw new Error("districts Error : ", res.error);
+        }
+    };
+    console.log(districts)
+
+    const getsubdistricts = async (id: any) => {
+        const res: any = await axios.get(`${pathUrl}/subdistrict/`+ id);
+        console.log("resda", res)
+
+        if (res.data.ok) {
+            setsubdistricts(res.data.message);
+        } else {
+            throw new Error("subdistrict Error : ", res.error);
+        }
+    };
+    console.log(subdistricts)
+
+
+    const onChangeProvince = (id: any) => {
+        getdistrictsovince(id)
+
+
+    }
+    const onChangedistrictsovince = (id: any) => {
+        getsubdistricts(id)
+
+        console.log(id)
+
+
+    }
 
     useEffect(() => {
-        fetchprovince();
-        fetchdistricts();
+        getprovince();
+
     }, []);
 
 
@@ -98,47 +127,49 @@ function Address() {
                     />
                 </div>
 
-                
-                <div className=' gap-3 mt-4'>
 
+                <div className=' gap-3 mt-4'>
+                    {/* จังหวัด */}
                     <div className="grid grid-cols-2">
                         <span>*จังหวัด</span>
                         <span>
-                            <select id="province" >
+                            <select id="province" onChange={(e) => onChangeProvince(e.target.value)}>
                                 <option selected disabled >
                                     กรุณาเลือก
                                 </option>
                                 {province.map((item: any) => (
-                                    <option className=" text-black" value="man" key={item.id} >  {item.name_in_thai}</option>
+                                    <option className=" text-black" value={item.id} key={item.id} >  {item.name_in_thai}</option>
                                 ))}
                             </select>
                         </span>
                     </div>
 
-
-
-
-
+                    {/* อำเภอ */}
                     <div className="grid grid-cols-2">
                         <span>*อำเภอ</span>
                         <span>
-                            <select id="districts" >
+                            <select id="districts" onChange={(e) => onChangedistrictsovince(e.target.value)}>
                                 <option selected disabled >
                                     กรุณาเลือก
                                 </option>
                                 {districts.map((item: any) => (
-                                    <option className=" text-black" value="man" key={item.id} >  {item.name_in_thai}</option>
+                                    <option className=" text-black" value={item.id} key={item.id} >  {item.name_in_thai}</option>
                                 ))}
+
                             </select>
                         </span>
                     </div>
                     <div>
                         <p className='mt-4'>* ตำบล / แขวง</p>
-                        <input className="block w-full border-b-2 border-grey-500  appearance-none focus:outline-none bg-transparent text-black"
-                            inputMode="text"
-                            // placeholder="กรุณากรอกเลขบัตรประชาชน"
-                            id="name"
-                        />
+
+                        <select id="subdistrict" >
+                            <option selected disabled >
+                                กรุณาเลือก
+                            </option>
+                            {subdistricts.map((item: any) => (
+                                <option className=" text-black" value={item.id} key={item.id} >  {item.name_in_thai}</option>
+                            ))}
+                        </select>
                     </div>
 
 
